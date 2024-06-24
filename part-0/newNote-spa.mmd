@@ -1,0 +1,15 @@
+%% Exercises 0.6
+%% New note in Single page app diagram
+
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+%% The browser request body contains data such as the content and the date.
+Note over browser, server: [{"content": "mare paoie", "date": "20240-24T20:11:28.459Z"}]
+activate server
+server-->>browser: HTTP status code  201
+deactivate server
+Note left of browser: The browser displays only the content property.
+%% Because all the lcgic happens now inside the browser the browser no longer needs to laod the whole, it only uses the logic inside the JavaScript code to change only the needed elements.
